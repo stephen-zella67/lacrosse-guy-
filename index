@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Lacrosse Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #bb0000; /* Ohio State red */
+      color: white;
+    }
+
+    header {
+      background: #333;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
+      color: #fff;
+    }
+
+    header img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 3px solid white;
+    }
+
+    nav {
+      background: #444;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      display: block;
+    }
+
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #555;
+      padding: 0;
+      list-style: none;
+      min-width: 150px;
+    }
+
+    nav ul li:hover ul {
+      display: block;
+    }
+
+    nav ul li ul li a {
+      padding: 10px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/6/6a/Lacrosse_goal.jpg') center/cover no-repeat;
+      color: white;
+    }
+
+    .hero h2 {
+      font-size: 2.5em;
+      text-shadow: 2px 2px 6px black;
+    }
+
+    .content {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #222;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ohio State Lacrosse</h1>
+    <!-- Replace this src with your own profile picture URL -->
+    <img src="https://via.placeholder.com/70" alt="Profile Picture">
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li>
+        <a href="#">About Me ▾</a>
+        <ul>
+          <li><a href="#">Stats</a></li>
+          <li><a href="#">Highlights</a></li>
+          <li><a href="#">Schedule</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h2>Welcome to My Lacrosse Profile</h2>
+    <p>Height: 6ft | Weight: 180 lbs</p>
+  </section>
+
+  <section class="content">
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Men%27s_Lacrosse.jpg" alt="Lacrosse Action">
+      <h3>Game Highlights</h3>
+      <p>Check out my top lacrosse plays and highlights.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Lacrosse_faceoff.jpg" alt="Faceoff">
+      <h3>Ohio State Pride</h3>
+      <p>Representing Ohio State with passion and energy.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Lacrosse_player.jpg" alt="Player">
+      <h3>Training & Stats</h3>
+      <p>Strength, endurance, and dedication to the game.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 My Lacrosse Profile | Built with ❤️ on GitHub Pages
+  </footer>
+</body>
+</html>
