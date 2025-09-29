@@ -1,181 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Lacrosse Profile</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stephen Zella | Lacrosse</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #bb0000; /* Ohio State red */
-      color: white;
-    }
+    /* Reset + base */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: Arial, sans-serif; color:#fff; line-height:1.5; background:#111; }
 
+    /* Header + nav */
     header {
-      background: #333;
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:10px 20px; background:#bb0000;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.8em;
-      color: #fff;
+    header img.logo { height:50px; }
+    nav { position:relative; }
+    nav ul { list-style:none; display:flex; gap:20px; }
+    nav ul li { position:relative; }
+    nav a {
+      color:#fff; text-decoration:none; font-weight:bold;
     }
-
-    .logo {
-      width: 80px;
-      height: auto;
-    }
-
-    header img.profile {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      border: 3px solid white;
-    }
-
-    nav {
-      background: #444;
-      padding: 10px;
-      display: flex;
-      justify-content: center;
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 20px;
-    }
-
-    nav ul li {
-      position: relative;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      padding: 8px 12px;
-      display: block;
-    }
-
     nav ul li ul {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #555;
-      padding: 0;
-      list-style: none;
-      min-width: 150px;
+      display:none; position:absolute; top:100%; left:0; background:#222;
+      padding:10px; border-radius:5px;
+    }
+    nav ul li:hover ul { display:block; }
+    nav ul li ul li { margin:5px 0; }
+
+    /* Mobile nav toggle */
+    #menuToggle { display:none; font-size:26px; background:none; border:0; color:#fff; cursor:pointer; }
+    @media (max-width:768px){
+      nav ul { display:none; flex-direction:column; background:#222; padding:10px; }
+      nav ul.open { display:flex; }
+      #menuToggle { display:block; }
     }
 
-    nav ul li:hover ul {
-      display: block;
-    }
-
-    nav ul li ul li a {
-      padding: 10px;
-    }
-
+    /* Hero */
     .hero {
-      text-align: center;
-      padding: 40px 20px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/6/6a/Lacrosse_goal.jpg') center/cover no-repeat;
-      color: white;
+      position:relative;
+      text-align:center;
+      padding:100px 20px;
+      background:url('https://images.unsplash.com/photo-1584817745740-d8dfea5d4dd2?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
     }
-
-    .hero h2 {
-      font-size: 2.5em;
-      text-shadow: 2px 2px 6px black;
+    .hero::before {
+      content:""; position:absolute; inset:0;
+      background:rgba(0,0,0,0.5);
     }
+    .hero-content {
+      position:relative; z-index:1;
+      max-width:800px; margin:auto;
+    }
+    .hero h1 { font-size:48px; margin-bottom:10px; }
+    .hero p { font-size:20px; }
 
+    /* Cards */
     .content {
-      padding: 30px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      max-width:1200px; margin:40px auto; padding:0 20px;
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;
     }
-
     .card {
-      background: #222;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      background:#222; border-radius:10px; overflow:hidden; text-align:center;
+      transition:transform .2s, box-shadow .2s;
+    }
+    .card img { width:100%; height:200px; object-fit:cover; }
+    .card h3 { margin:15px 0; font-size:22px; }
+    .card p { padding:0 15px 20px; font-size:15px; }
+    .card:hover {
+      transform:translateY(-6px);
+      box-shadow:0 8px 16px rgba(0,0,0,0.6);
     }
 
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
+    /* Footer */
     footer {
-      background: #111;
-      text-align: center;
-      padding: 15px;
-      margin-top: 30px;
-      font-size: 0.9em;
+      text-align:center; padding:20px;
+      background:#bb0000; margin-top:40px;
     }
+    footer img { height:40px; display:block; margin:0 auto 10px; }
+    footer p { font-size:14px; }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <!-- Ohio State Logo -->
-    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Ohio_State_Buckeyes_logo.svg" alt="Ohio State Logo">
-    <h1>Ohio State Lacrosse</h1>
-    <!-- Replace this src with your own profile picture URL -->
-    <img class="profile" src="https://via.placeholder.com/70" alt="Profile Picture">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Ohio_State_Buckeyes_logo.svg/1024px-Ohio_State_Buckeyes_logo.svg.png" alt="Ohio State Logo" class="logo">
+    <button id="menuToggle">☰</button>
+    <nav>
+      <ul id="mainNav">
+        <li><a href="#">Home</a></li>
+        <li>
+          <a href="#">About Me ▾</a>
+          <ul>
+            <li><a href="#">Stats</a></li>
+            <li><a href="#">Highlights</a></li>
+            <li><a href="#">Schedule</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li>
-        <a href="#">About Me ▾</a>
-        <ul>
-          <li><a href="#">Stats</a></li>
-          <li><a href="#">Highlights</a></li>
-          <li><a href="#">Schedule</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Gallery</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
-
+  <!-- Hero -->
   <section class="hero">
-    <h2>Welcome to My Lacrosse Profile</h2>
-    <p>Height: 6ft | Weight: 180 lbs</p>
+    <div class="hero-content">
+      <h1>Stephen Zella</h1>
+      <p>Ohio State Lacrosse • 6ft • 180 lbs</p>
+    </div>
   </section>
 
-  <section class="content">
+  <!-- Cards -->
+  <main class="content">
     <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Men%27s_Lacrosse.jpg" alt="Lacrosse Action">
+      <img src="https://images.unsplash.com/photo-1599940824395-3d48b8e69a8e?auto=format&fit=crop&w=800&q=80" alt="Game Highlights">
       <h3>Game Highlights</h3>
-      <p>Check out my top lacrosse plays and highlights.</p>
+      <p>Watch some of my top plays and best lacrosse moments from the season.</p>
     </div>
-
     <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Lacrosse_faceoff.jpg" alt="Faceoff">
-      <h3>Ohio State Pride</h3>
-      <p>Representing Ohio State with passion and energy.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Lacrosse_player.jpg" alt="Player">
+      <img src="https://images.unsplash.com/photo-1627627257779-2cb665fb692e?auto=format&fit=crop&w=800&q=80" alt="Training">
       <h3>Training & Stats</h3>
-      <p>Strength, endurance, and dedication to the game.</p>
+      <p>Explore my training routines and track progress over time.</p>
     </div>
-  </section>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1509223197845-458d87318791?auto=format&fit=crop&w=800&q=80" alt="Lacrosse Team">
+      <h3>Team Spirit</h3>
+      <p>Celebrating the Ohio State Buckeyes lacrosse team and our journey together.</p>
+    </div>
+  </main>
 
+  <!-- Footer -->
   <footer>
-    &copy; 2025 My Lacrosse Profile | Built with ❤️ on GitHub Pages
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Ohio_State_Buckeyes_logo.svg/1024px-Ohio_State_Buckeyes_logo.svg.png" alt="Ohio State Logo">
+    <p>© 2025 Stephen Zella | Ohio State Lacrosse</p>
   </footer>
+
+  <!-- Mobile nav script -->
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('mainNav');
+    toggle.addEventListener('click', () => nav.classList.toggle('open'));
+  </script>
 </body>
 </html>
